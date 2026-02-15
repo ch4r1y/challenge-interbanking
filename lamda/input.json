@@ -1,0 +1,9 @@
+{
+  "resource": "/companies",
+  "path": "/companies",
+  "httpMethod": "POST",
+  "headers": {},
+  "queryStringParameters": null,
+  "body": "{\"id\":\"ffe98ff1-d89c-4e22-bb98-16378ff64f58\",\"name\":\"Company name\",\"type\":\"PYME\",\"adheredAt\":\"2026-02-15T12:00:00.000Z\"}",
+  "isBase64Encoded": false
+}

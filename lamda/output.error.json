@@ -1,0 +1,9 @@
+{
+  "statusCode": 400,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "message": "Register company error: Invalid Company payload"
+  }
+}
