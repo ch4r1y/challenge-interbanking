@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "typescript": "tsc --noEmit",
-    "lambda": "nest build & sam local invoke RegisterCompanyFunction -e lamda/input.json"
+    "lambda": "nest build & sam local invoke RegisterCompanyFunction -e lambda/input.json"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

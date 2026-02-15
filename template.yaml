@@ -7,7 +7,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: nodejs20.x
-      Handler: dist/lamda/register-company.handler
+      Handler: dist/lambda/register-company.handler
       CodeUri: .
       MemorySize: 128
       Timeout: 10
