@@ -2,6 +2,7 @@ import { PymeCompany } from './pyme-company.entity';
 import { EnterpriseCompany } from './enterprise-company.entity';
 import { Company } from './company.entity';
 import { CompanyType } from './enums/company-type.enum';
+import { CompanyTypeError } from './errors/company-type.error';
 
 interface CreateCompanyParams {
   id: string;
@@ -20,7 +21,7 @@ export class CompanyFactory {
         return EnterpriseCompany.create(params);
 
       default:
-        throw new Error('Invalid company type');
+        throw new CompanyTypeError(params.type);
     }
   }
 }
