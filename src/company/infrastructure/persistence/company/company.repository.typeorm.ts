@@ -2,13 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MoreThanOrEqual, Repository } from 'typeorm';
 import { CompanyOrmEntity } from './company.orm-entity';
-import { CompanyRepository } from '../../../domain/ports/company.repository';
 import { CompanyName } from '../../../domain/value-objects/company-name.vo';
 import { Company } from '../../../domain/company.entity';
 import { CompanyMapper } from './company.mapper';
+import { SearchCompanyRepository } from '../../../domain/ports/search-company-repository';
+import { RegisterCompanyRepository } from '../../../domain/ports/register-company-repository';
 
 @Injectable()
-export class CompanyRepositoryTypeorm implements CompanyRepository {
+export class CompanyRepositoryTypeorm
+  implements SearchCompanyRepository, RegisterCompanyRepository
+{
   constructor(
     @InjectRepository(CompanyOrmEntity)
     private readonly repository: Repository<CompanyOrmEntity>,

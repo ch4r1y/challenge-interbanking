@@ -1,5 +1,5 @@
 import { FindCompaniesUseCase } from './find-companies.use-case';
-import { CompanyRepository } from '../../domain/ports/company.repository';
+import { SearchCompanyRepository } from '../../domain/ports/search-company-repository';
 import { FilterType } from './filter-type';
 import { CompanyFactory } from '../../domain/company.factory';
 import { CompanyType } from '../../domain/enums/company-type.enum';
@@ -12,9 +12,7 @@ describe('FindCompaniesUseCase', () => {
     jest.restoreAllMocks();
   });
 
-  const createRepositoryMock = (): jest.Mocked<CompanyRepository> => ({
-    save: jest.fn(),
-    findByName: jest.fn(),
+  const createRepositoryMock = (): jest.Mocked<SearchCompanyRepository> => ({
     findAdheredSince: jest.fn(),
     findWithTransfersSince: jest.fn(),
   });

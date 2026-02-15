@@ -1,12 +1,14 @@
-import { CompanyRepository } from '../../domain/ports/company.repository';
 import { Injectable } from '@nestjs/common';
 import { Company } from '../../domain/company.entity';
 import { FilterType } from './filter-type';
 import { FilterTypeError } from '../../domain/errors/filter-type.error';
+import { SearchCompanyRepository } from '../../domain/ports/search-company-repository';
 
 @Injectable()
 export class FindCompaniesUseCase {
-  constructor(private readonly companyRepository: CompanyRepository) {}
+  constructor(
+    private readonly searchCompanyRepository: SearchCompanyRepository,
+  ) {}
 
   async execute(filter: FilterType): Promise<Company[]> {
     const oneMonthAgo = new Date();
@@ -14,9 +16,9 @@ export class FindCompaniesUseCase {
 
     const handlers: Record<FilterType, () => Promise<Company[]>> = {
       [FilterType.TransferLastMonth]: () =>
-        this.companyRepository.findWithTransfersSince(oneMonthAgo),
+        this.searchCompanyRepository.findWithTransfersSince(oneMonthAgo),
       [FilterType.AdheredLastMonth]: () =>
-        this.companyRepository.findAdheredSince(oneMonthAgo),
+        this.searchCompanyRepository.findAdheredSince(oneMonthAgo),
     };
 
     const handler = handlers[filter];

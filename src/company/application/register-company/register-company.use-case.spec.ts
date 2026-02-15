@@ -1,11 +1,11 @@
 import { RegisterCompanyUseCase } from './register-company.use-case';
-import { CompanyRepository } from '../../domain/ports/company.repository';
 import { CompanyFactory } from '../../domain/company.factory';
 import { RegisterCompanyDto } from './register-company.dto';
 import { CompanyAlreadyExistsError } from '../../domain/errors/company-already-exists.error';
 import { CompanyType } from '../../domain/enums/company-type.enum';
 import { CompanyName } from '../../domain/value-objects/company-name.vo';
 import { randomUUID } from 'node:crypto';
+import { RegisterCompanyRepository } from '../../domain/ports/register-company-repository';
 
 describe('RegisterCompanyUseCase', () => {
   const baseCommand: RegisterCompanyDto = {
@@ -19,11 +19,9 @@ describe('RegisterCompanyUseCase', () => {
     jest.restoreAllMocks();
   });
 
-  const createRepositoryMock = (): jest.Mocked<CompanyRepository> => ({
+  const createRepositoryMock = (): jest.Mocked<RegisterCompanyRepository> => ({
     save: jest.fn(),
     findByName: jest.fn(),
-    findAdheredSince: jest.fn(),
-    findWithTransfersSince: jest.fn(),
   });
 
   it('should save a new company when name is available', async () => {
