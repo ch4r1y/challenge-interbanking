@@ -8,11 +8,11 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { RegisterCompanyUseCase } from '../../application/register-company/register-company.use-case';
-import { RegisterCompanyDto } from '../../application/register-company/register-company.dto';
 import { CompanyResponseDto } from './dtos/company.response.dto';
 import { CompanyQueryDto } from './dtos/company-query.dto';
 import { FindCompaniesUseCase } from '../../application/find-companies/find-companies.use-case';
 import { FilterType } from '../../application/find-companies/filter-type';
+import { RegisterCompanyDto } from './dtos/register-company.dto';
 
 @ApiTags('company')
 @Controller('companies')

@@ -8,7 +8,7 @@ import {
   IsDate,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { CompanyType } from '../../domain/enums/company-type.enum';
+import { CompanyType } from '../../../domain/enums/company-type.enum';
 
 export class RegisterCompanyDto {
   @ApiProperty({ format: 'uuid' })

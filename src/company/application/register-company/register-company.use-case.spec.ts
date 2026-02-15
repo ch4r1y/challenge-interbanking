@@ -1,6 +1,6 @@
 import { RegisterCompanyUseCase } from './register-company.use-case';
 import { CompanyFactory } from '../../domain/company.factory';
-import { RegisterCompanyDto } from './register-company.dto';
+import { RegisterCompanyCommand } from './register-company.command';
 import { CompanyAlreadyExistsError } from '../../domain/errors/company-already-exists.error';
 import { CompanyType } from '../../domain/enums/company-type.enum';
 import { CompanyName } from '../../domain/value-objects/company-name.vo';
@@ -8,7 +8,7 @@ import { randomUUID } from 'node:crypto';
 import { RegisterCompanyRepository } from '../../domain/ports/register-company-repository';
 
 describe('RegisterCompanyUseCase', () => {
-  const baseCommand: RegisterCompanyDto = {
+  const baseCommand: RegisterCompanyCommand = {
     id: randomUUID(),
     name: 'Company name',
     type: CompanyType.PYME,

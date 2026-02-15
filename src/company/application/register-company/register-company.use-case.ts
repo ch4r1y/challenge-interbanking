@@ -1,5 +1,5 @@
 import { CompanyFactory } from '../../domain/company.factory';
-import { RegisterCompanyDto } from './register-company.dto';
+import { RegisterCompanyCommand } from './register-company.command';
 import { CompanyAlreadyExistsError } from '../../domain/errors/company-already-exists.error';
 import { CompanyName } from '../../domain/value-objects/company-name.vo';
 import { Injectable } from '@nestjs/common';
@@ -11,7 +11,7 @@ export class RegisterCompanyUseCase {
     private readonly registerCompanyRepository: RegisterCompanyRepository,
   ) {}
 
-  async execute(command: RegisterCompanyDto): Promise<void> {
+  async execute(command: RegisterCompanyCommand): Promise<void> {
     const existing = await this.registerCompanyRepository.findByName(
       CompanyName.create(command.name),
     );
